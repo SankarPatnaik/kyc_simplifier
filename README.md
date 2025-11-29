@@ -104,6 +104,25 @@ python bulk_convert.py --input ./raw_templates --output ./client_ready_templates
 
 This will rewrite all templates using the rule engine.
 
+## **📄 Convert JSON Template Payloads**
+
+If your template generator emits JSON instead of loose text files, you can rewrite
+the payload end-to-end without changing its structure:
+
+```bash
+python json_convert.py --input ./templates.json --output ./templates.simplified.json
+```
+
+Key options:
+
+* `--text-field` — name of the field that contains the template text (default: `text`)
+* `--output-field` — where to store the simplified text (default: `simplified_text`)
+* `--config` — path to the YAML ruleset (default: `config.yaml`)
+
+The converter walks any lists or nested objects, rewrites the configured text
+field, and writes a JSON file with the new field added alongside the original
+content.
+
 ---
 
 # **🌐 Run the FastAPI Service**
