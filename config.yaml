@@ -1,0 +1,45 @@
+sentence_length_limit: 24
+
+jargon_map:
+  "Periodic Review": "regular review"
+  "Client Refresh": "update cycle"
+  "KYC Maker": "KYC analyst"
+  "due diligence": "standard checks"
+  "data attributes": "details"
+  "documentation/information": "documents"
+  "certificate of incumbency": "official company authorization document"
+  "Lexis Nexis": "external verification source"
+  "DB": "external verification database"
+  "AMC request": "update request"
+  "restated articles of incorporation": "updated registration documents"
+  "articles of incorporation": "company registration documents"
+
+tone_map:
+  "we require": "we kindly request"
+  "you are required to": "please"
+  "submit": "share"
+  "furnish": "provide"
+  "mandatory": "required"
+  "asap": "at your earliest convenience"
+  "failure": "delay"
+
+patterns:
+  - search: "During Periodic Review/Client Refresh"
+    replace: "During our regular review"
+  - search: "If a change event such as a name change, dissolution, or liquidation is identified"
+    replace: "If we identify any name or company structure changes"
+  - search: "upload"
+    replace: "share"
+
+kyc_documents:
+  "certificate of incorporation": "a copy of your Certificate of Incorporation"
+  "formation document": "a copy of your Formation document"
+  "articles of incorporation": "company registration documents"
+  "certificate of amendment": "a document showing changes to your registered details"
+  "agreement of merger": "a merger agreement showing updated company details"
+  "amended statement": "an updated legal statement"
+  "certificate of incumbency": "an official company authorization document"
+
+boilerplate:
+  request_intro: "To complete your KYC renewal, we kindly request the following information:"
+  thank_you: "Thank you for your cooperation. Please feel free to contact us if you have any questions."
