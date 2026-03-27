@@ -36,7 +36,7 @@ kyc_simplifier/
 ## **1. Install Dependencies**
 
 ```bash
-pip install fastapi uvicorn pyyaml
+pip install fastapi uvicorn pyyaml extract-msg python-multipart
 ```
 
 (Optional) Create a virtual environment:
@@ -94,6 +94,23 @@ print(output)
 
 ---
 
+## **📨 Convert Outlook `.msg` Emails**
+
+Convert a Microsoft Outlook message file into a structured, customer-friendly
+email payload:
+
+```bash
+python msg_convert.py --input ./raw_email.msg --output ./raw_email.simplified.json
+```
+
+The output JSON includes:
+
+* `subject`, `sender`, `to`, `cc`, `date`
+* `original_body`
+* `simplified_body` (ready for KYC Renewal/Review/Client Refresh communication)
+
+---
+
 # **📚 Bulk Convert Templates**
 
 Convert all `.txt`, `.md`, `.html` files in a folder:
@@ -138,6 +155,16 @@ curl -X POST http://localhost:8000/simplify-text \
      -H "Content-Type: application/json" \
      -d '{"text": "your technical content here"}'
 ```
+
+You can also upload Outlook `.msg` files directly to the API:
+
+```bash
+curl -X POST http://localhost:8000/simplify-msg \
+     -H "accept: application/json" \
+     -H "Content-Type: multipart/form-data" \
+     -F "file=@./raw_email.msg"
+```
+
 
 ---
 
