@@ -1,0 +1,6 @@
+fastapi>=0.110,<1
+uvicorn>=0.27,<1
+pyyaml>=6.0
+python-multipart>=0.0.9
+ebcdic>=1.1.1,<2
+extract-msg
