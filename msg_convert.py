@@ -91,7 +91,11 @@ class OutlookMsgSimplifier:
     def _ensure_dependency() -> None:
         if extract_msg is None:
             raise RuntimeError(
-                "Missing dependency 'extract_msg'. Install it with: pip install extract-msg"
+                "Missing dependency 'extract_msg'. Try: \
+"
+                "1) pip install 'ebcdic>=1.1.1,<2' 'extract-msg' \
+"
+                "2) If install still fails on Python 3.12, create a Python 3.11 virtualenv for .msg parsing."
             ) from _extract_msg_import_error
 
 

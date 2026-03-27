@@ -36,8 +36,20 @@ kyc_simplifier/
 ## **1. Install Dependencies**
 
 ```bash
-pip install fastapi uvicorn pyyaml extract-msg python-multipart
+pip install fastapi uvicorn pyyaml python-multipart
+pip install "ebcdic>=1.1.1,<2" extract-msg
 ```
+
+If `extract-msg` fails to install (common resolver issues around `ebcdic` on some Python 3.12 environments), use a clean virtualenv and install with explicit pins:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install "ebcdic>=1.1.1,<2" "extract-msg"
+```
+
+If your platform still cannot resolve `extract-msg` on Python 3.12, run `.msg` conversion on Python 3.11 for now.
 
 (Optional) Create a virtual environment:
 
